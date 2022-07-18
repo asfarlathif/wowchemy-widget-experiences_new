@@ -43,10 +43,10 @@
             <div>
           {{ end }}
 
-              <div class="section-subheading card-title exp-title text-muted my-0">{{.title | markdownify | emojify}}
-                {{- with .company_url}}<a href="{{.}}" target="_blank" rel="noopener">{{end}}{{.title | markdownify | emojify}}{{with .company_url}}</a>{{end -}}</div>
+              <div class="section-subheading card-title exp-title text-muted my-0">{{- with .company_url}}<a href="{{.}}" target="_blank" rel="noopener">{{end}}{{.title | markdownify | emojify}}{{with .company_url}}</div>
               <div class="section-subheading card-title exp-company text-muted my-0">
-               </div>
+                {{.company | markdownify | emojify}}</a>{{end -}}
+              </div>
               <div class="text-muted exp-meta">
                 {{ (time .date_start) | time.Format ($page.Params.date_format | default "January 2006") }} –
                 {{ if .date_end}}
@@ -73,4 +73,3 @@
   {{end}}
   {{end}}
 </div>
-
